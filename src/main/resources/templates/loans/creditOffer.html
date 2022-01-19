@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Offer</title>
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+        <div class="nav-title">
+            Total sum of credit: <span th:text="${totalSum}"></span>
+        </div>
+    </div>
+    <div class="nav-btn">
+        <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
+
+    <div class="nav-links">
+        <a th:href="@{/commitLoan}">Get this loan</a>
+        <a th:href="@{/loans/1}">View other loans</a>
+        <a th:href="@{/choseSum}">Change sum or length</a>
+    </div>
+</div>
+    <div class="table-title">
+        <h2>Here is your credit offer</h2>
+    </div>
+    <table class="table-fill">
+        <tr>
+            <th>Payment date</th>
+            <th>Payment sum</th>
+            <th>Credit repayment</th>
+            <th>Interest repayment</th>
+        </tr>
+        <tr th:each="payment : ${creditOffer.getPaymentSchedules()}">
+            <td th:text="${payment.paymentDate}"></td>
+            <td th:text="${payment.paymentSum}"></td>
+            <td th:text="${payment.creditRepaymentSum}"></td>
+            <td th:text="${payment.interestRepaymentSum}"></td>
+        </tr>
+    </table>
+    <br>
+
+</body>
+
+</html>

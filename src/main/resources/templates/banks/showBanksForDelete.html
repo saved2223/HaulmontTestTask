@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chose a Loan</h1>
+<div class="select">
+    <select onchange="getLoansForBank(this.options[this.selectedIndex].value)">
+        <option disabled selected value>choose an bank</option>
+        <option th:each="bank: ${banks}" th:value="${bank.getId()}" th:text="${bank.getName()}"></option>
+    </select>
+</div>
+
+<table id="a1" class="table-fill"></table>
+
+
+<script>
+    function getLoansForBank(bankId){
+        $('.table-fill').empty();
+        $('#a1').append(
+            '<tr> <th>Interest Rate</th> <th>Limit</th> <th></th> </tr>'
+        );
+        $.get("/getLoans/" + bankId, function (data){
+            data.forEach(d => $('#a1').append(
+                $('<tr>').prop({
+                    innerHTML: '<td>' + d.interestRate + '</td> <td>' + d.limit + '</td> <td> <a href="/deleteLoan/' + d.id + '">Delete this loan</a></td>',
+                })
+            ))
+        })
+    }
+</script>
+</body>
+</html>

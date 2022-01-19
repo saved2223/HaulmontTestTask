@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+    <title>Update</title>
+</head>
+<body>
+    <h1>Update client's data</h1>
+    <div id="form-main">
+        <div id="form-div">
+            <form class="form" id="form1" th:action="@{/updateClient}"
+                  th:object="${client}" method="post">
+                Full name:
+                <input type="text" th:field="*{fullName}" th:value="${client.getFullName()}"/>
+                <br/>
+                Phone number:
+                <input type="text" th:field="*{phoneNumber}" th:value="${client.getPhoneNumber()}" required/>
+                <br>
+                E-mail:
+                <input type="email" th:field="*{email}" th:value="${client.getEmail()}" required/>
+                <br>
+                Passport number:
+                <input type="text" th:field="*{passportNumber}" th:value="${client.getPassportNumber()}" required/>
+                <br>
+                <input type="submit" value="Update" id="button-blue" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

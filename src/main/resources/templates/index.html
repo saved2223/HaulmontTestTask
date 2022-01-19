@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/index.css" th:href="@{/css/index.css}">
+    <title>Welcome</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>
+        <a href="#menu">Welcome! Click me</a>
+    </h1>
+    <div class="popover" id="menu">
+        <div class = 'content'>
+            <a href="#" class="close"></a>
+            <div class = 'nav'>
+                <ul class = 'nav_list'>
+
+                    <div class = 'nav_list_item'>
+                        <li><a th:href="@{/addBank}">Add a new Bank</a></li>
+                    </div>
+                    <div class = 'nav_list_item'>
+                        <li><a th:href="@{/addLoan}">Add a new Loan</a></li>
+                    </div>
+                    <div class = 'nav_list_item'>
+                        <li><a th:href="@{/loans/2}">Delete loan</a></li>
+                    </div>
+                    <div class = 'nav_list_item'>
+                        <li><a th:href="@{/loans/1}">Chose a loan</a></li>
+                    </div>
+                    <div class = 'nav_list_item'>
+                        <li><a th:href="@{/showClients}">Show banks clients</a></li>
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

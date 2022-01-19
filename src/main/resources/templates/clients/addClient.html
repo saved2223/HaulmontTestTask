@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+ <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+
+     <title>Adding a new Client</title>
+</head>
+<body>
+<div id="form-main">
+    <div id="form-div">
+        <form th:action="@{/commitLoan}"
+              th:object="${client}" method="post" class="form" id="form1">
+            Full name:
+            <input type="text" th:field="*{fullName}" required/>
+            <br/>
+            Phone number:
+            <input type="text" th:field="*{phoneNumber}" required/>
+            <br>
+            E-mail:
+            <input type="email" th:field="*{email}" required/>
+            <br>
+            Passport number:
+            <input type="text" th:field="*{passportNumber}" required/>
+            <br>
+            <input type="submit" value="Add" id="button-blue"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

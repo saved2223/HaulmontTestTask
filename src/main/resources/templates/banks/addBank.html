@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+    <title>New Bank</title>
+</head>
+<body>
+<div id="form-main">
+    <div id="form-div">
+        <form th:action="@{/addBank}"
+              th:object="${bank}" method="post" class="form" id="form1">
+            Name of the bank:
+            <input type="text" th:field="*{name}"  required/>
+            <input type="submit" value="Add" id="button-blue" />
+        </form>
+    </div>
+</div>
+</body>
+</html>
