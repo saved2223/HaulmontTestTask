@@ -24,12 +24,13 @@
         $('#a1').append(
             '<tr> <th>Full name</th> <th>Email</th> <th></th> </tr>'
         );
-        $.get("/getClients/" + bankId, function (data) {
-            data.forEach(d => {
-                $('<tr>').prop({
-                    innerHTML: '<td>' + d.fullName + '</td> <td>' + d.email + '</td> <td> <a href="/updateSelectedClient/' + d.id + '">Change personal data</a></td>',
-                })
-            })
+        $.get("/getClients/" + bankId, function (data){
+            data.forEach(d => $('#a1').append(
+                    $('<tr>').prop({
+                        innerHTML: '<td>' + d.fullName + '</td> <td>' + d.email + '</td> <td> <a href="/updateSelectedClient/' + d.id + '">Change personal data</a></td>',
+                    })
+            )
+            )
         })
     }
 </script>
